@@ -1,0 +1,37 @@
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background-color: #f8f8f8;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0px;
+  padding: 0px;
+}
+
+i {
+  font-size: 1.6rem;
+}
+
+.h-full {
+  height: 100vh;
+}
+.App{
+  margin-left: 15%;
+  width:85vw;
+}
+
+.bell{
+  position:absolute;
+  left:88%;
+  top:7%;
+  width:45px;
+  height:35px;
+  background-color: #ffffff;
+}
