@@ -1,0 +1,87 @@
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background-color: #f8f8f8;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0px;
+  padding: 0px;
+}
+.sidebar {
+  background:#F5F5F5;
+  width:25%;
+     .brand-name {
+      font-family: 'Montserrat', sans-serif;
+      color:#203562;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+    .brand-name1 {
+      font-family: 'Montserrat', sans-serif;
+      color:#203562;
+      font-weight:400;
+    }
+  .nav-links {
+    width: 100%;
+    > ul {
+      padding: 0px;
+      margin: 0px;
+      list-style-type: none;
+      >li{
+        display:flex;
+      > .nav-link {
+        display: flex;
+        align-items:center;
+        width:100px;
+        height: 50px;
+        text-decoration: none; 
+      }
+
+      > .active {
+        background-color: #203562;
+        width:100%;
+        >p,i {
+          color:white;
+         
+        }
+      }
+    }
+  }
+}
+}
+.h-full{
+  height:100vh;
+  margin-left:5%;
+}
+img{
+  border-radius: 50%;
+  height:60px;
+  width:60px;
+  object-fit:fill;
+}
+p {
+font-size: 1.5rem;
+color:#203562;
+}
+i{
+font-size: 1.5rem;
+color:#203562;
+}
+.me-6{
+  margin-left:7rem;
+}
+.content{
+ background-color:#E3E8F8 ;
+ height:100vh;
+ width:75%;
+}
+.head-clr{
+  color:#4A5A7F;
+}
