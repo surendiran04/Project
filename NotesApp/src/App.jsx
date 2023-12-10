@@ -1,6 +1,5 @@
 import React from 'react';
 import { Routes,Route, BrowserRouter,} from "react-router-dom";
-//import Note from "./components/notes"
 import Sidebar from "./sidebar"
 import Search from "./pages/Search"
 import Home from "./pages/Home"

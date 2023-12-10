@@ -1,7 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Mynotes from '../components/Mynotes';
+import NoteCard from '../components/Notecard';
 
 export default function Notes() {
   return (
-    <div>Notes</div>
+    <div>
+      <NoteCard/>
+    <Mynotes/>
+    </div>
   )
 }

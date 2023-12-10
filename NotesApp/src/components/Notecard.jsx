@@ -1,22 +1,44 @@
-import React from 'react';
+import React,{useState}from 'react';
 import {
     Card,
     Button,
-    CardTitle,
     FormGroup,
     Input,
     Row,
     Col,
   } from "reactstrap";
   import DatePicker from "react-datepicker";
+ import {useDispatch} from "react-redux";
+import { addNotes } from '../Redux/NoteReducer';
 
-  export default function NoteCard({
-    handleChange = () => {},
-    values = {},
-    type = "Note",
-    handleSubmit = () => {},
-  }) {
+ const INITIAL_STATE = {
+  title: "",
+  description: "",
+  endDate: "",
+  endTime: "",
+};
+
+
+  export default function NoteCard(){
+  const [formData, setFormData] = useState(INITIAL_STATE);//here,we are passing INITIAL_STATE to empty the input after hitting the save button
+  const dispatcher = useDispatch();
+
+  
+  function handleChange(e) {
+    let formDataCopy = {
+      ...formData,
+    };
+    formDataCopy[e.target.id] = e.target.value;
+    setFormData(formDataCopy);
+  }
+  
+  function handleSaveTask(e) {
+    dispatcher(addNotes(formData));
+    setFormData(INITIAL_STATE);
+  }
+
   return (
+    <div>
     <Card
       body
       className="mb-3 mt-4 pb-4 mx-3"
@@ -29,7 +51,7 @@ import {
           name="title"
           id="title"
           placeholder={`Title`}
-          value={values["title"]}
+      
           onChange={handleChange}
           style={{ border: "none", background: "#F1F2F6",}}
         />
@@ -39,8 +61,8 @@ import {
           type="textarea"
           name="description"
           id="description"
-          placeholder={`Add a ${type}...`}
-          value={values["description"]}
+            
+          placeholder={`Add a note...`}
           onChange={handleChange}
           style={{ border: "none", background: "#F1F2F6",height:"125px" }}
         />
@@ -50,6 +72,8 @@ import {
         dateFormat="dd/MM/yyyy"
         showTimeSelect
         timeFormat="pp"
+        handleChange={handleChange}
+      
       />
       <Row lg={12}>
         <Col lg={{ size: 2, order: 1, offset: 10 }}>
@@ -58,12 +82,14 @@ import {
               width: "100%",
               backgroundColor: "#203562",
             }}
-            onClick={handleSubmit}
+            onClick={handleSaveTask}
           >
             Save
           </Button>
         </Col>
       </Row>
     </Card>
+   
+    </div>
   )
 }

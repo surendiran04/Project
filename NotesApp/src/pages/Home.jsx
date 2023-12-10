@@ -1,12 +1,17 @@
-import React from 'react'
-import TaskCard from '../components/Taskcard'
-import Notecard from '../components/Notecard'
+import React  from 'react'
+import Mynotes from '../components/Mynotes'
+import Mytask from '../components/MyTask'
+
+
 
 export default function Home() {
+  
+  
   return (
     <div className="container">
-        <TaskCard/>
-        <Notecard/>
+       <Mynotes/>
+       <Mytask/>
     </div>
+   
   )
 }

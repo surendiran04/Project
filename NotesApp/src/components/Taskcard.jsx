@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState }from "react";
 import {
   Card,
   Button,
@@ -8,14 +8,43 @@ import {
   Col,
 } from "reactstrap";
 import DatePicker from "react-datepicker";
+import {useDispatch } from "react-redux";
+import { addTasks } from "../Redux/TaskReducer";
+
+const INITIAL_STATE = {
+  title: "",
+  description: "",
+  endDate: "",
+  endTime: "",
+};
+
+export default function TaskCard(){
+  const [formData, setFormData] = useState(INITIAL_STATE);//here,we are passing INITIAL_STATE to empty the input after hitting the save button
+  const dispatcher = useDispatch();
+
+  /*React.useEffect(() => {
+    setFormData(task.title ? task : INITIAL_STATE);
+    return () => {};
+  }, [task]);*/
 
 
-export default function TaskCard({
-  handleChange = () => {},
-  values = {},
-  type = "Task",
-  handleSubmit = () => {},
-}) {
+  const values={}
+  function handleChange(e) {
+    let formDataCopy = {
+      ...formData,
+    };
+    formDataCopy[e.target.id] = e.target.value;
+    setFormData(formDataCopy);
+ 
+  }
+
+  function handleSaveTask(e) {
+    dispatcher(addTasks(formData));
+    console.log(formData)
+    setFormData(INITIAL_STATE);
+    
+  }
+  
   return (
     <Card
       body
@@ -26,12 +55,12 @@ export default function TaskCard({
       <FormGroup>
         <Input
           type="text"
-          name="title"
+         name="title"
           id="title"
           placeholder={`Title`}
-          value={values["title"]}
           onChange={handleChange}
           style={{ border: "none", background: "#F1F2F6",}}
+        
         />
       </FormGroup>
       <FormGroup className="mb-3">
@@ -39,7 +68,7 @@ export default function TaskCard({
           type="textarea"
           name="description"
           id="description"
-          placeholder={`Add a ${type}...`}
+          placeholder={`Add a Task...`}
           value={values["description"]}
           onChange={handleChange}
           style={{ border: "none", background: "#F1F2F6", }}
@@ -50,6 +79,9 @@ export default function TaskCard({
         dateFormat="dd/MM/yyyy"
         showTimeSelect
         timeFormat="pp"
+        handleChange={handleChange}
+        endDate={values["endDate"]}
+        endTime={values["endTime"]}
       />
       <Row lg={12}>
         <Col lg={{ size: 2, order: 1, offset: 10 }}>
@@ -58,7 +90,7 @@ export default function TaskCard({
               width: "100%",
               backgroundColor: "#203562",
             }}
-            onClick={handleSubmit}
+            onClick={handleSaveTask}
           >
             Save
           </Button>

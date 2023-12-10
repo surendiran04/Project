@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css';
 import { NavLink} from "react-router-dom";
-//import Note from "./components/notes"
+
 
 export default function Sidebar() {
   return (
