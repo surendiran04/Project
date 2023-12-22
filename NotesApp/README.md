@@ -1,8 +1,6 @@
-# React + Vite
+NotesApp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+It is To-Do-list app where the states are managed reducers It has various routes in it.
+Yet to do Authentication and Small dynamic changes that makes this a Advanced project
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Website link : https://notes-taskapp.netlify.app/
